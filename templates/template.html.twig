@@ -6,7 +6,7 @@
 
     {% block entete_haut %}
      <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-    <a class="navbar-brand js-scroll-trigger" href="#page-top">
+    <a class="navbar-brand js-scroll-trigger" href="{{ path("accueil") }}">
         <span class="d-block d-lg-none">Les gestion des données</span>
         <span class="d-none d-lg-block">
         </span>
@@ -20,22 +20,22 @@
     {% block menu %}
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link js-scroll-trigger" href="#about">About</a>
+                <a class="nav-link js-scroll-trigger" href="{{ path("accueil") }}">Accueil</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link js-scroll-trigger" href="#experience">Experience</a>
+                <a class="nav-link js-scroll-trigger" href="#">Experience</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link js-scroll-trigger" href="#education">Education</a>
+                <a class="nav-link js-scroll-trigger" href="#">Education</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link js-scroll-trigger" href="#skills">Skills</a>
+                <a class="nav-link js-scroll-trigger" href="#">Skills</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link js-scroll-trigger" href="#interests">Interests</a>
+                <a class="nav-link js-scroll-trigger" href="#">Interests</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link js-scroll-trigger" href="#awards">Awards</a>
+                <a class="nav-link js-scroll-trigger" href="#">Awards</a>
             </li>
         </ul>
     {% endblock %}
@@ -59,7 +59,9 @@
         </div>
     </section>
 {% endblock %}
-
+    {% block footer %}
+        <div><hr><footer class="blockquote-footer">Create by <cite title="Source Title">© Tsymbalov Artem</cite> - 2018</footer></div>
+    {% endblock %}
 {% endblock %}
 
 

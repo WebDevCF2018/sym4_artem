@@ -1,0 +1,44 @@
+{% extends 'template.html.twig' %}
+{% block title %}{{ parent() }} - {{ section.getThenamesection }}{% endblock %}
+
+{% block titre %}{{ parent() }} - {{ section.getThenamesection }}{% endblock %}
+{% block stitre %}{{ section.getThedescriptif }}   {% endblock %}
+
+{% block menu %}
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="{{ path("accueil") }}">Accueil</a>
+        </li>
+        {% for itemMenu in sections %}
+            {# if current section is selected on this loop's turn#}
+            {% if(itemMenu.getIdthesection == section.getIdthesection) %}
+                {# create forActive Twig local variable#}
+                {% set forActive = "active" %}
+            {% else %}
+                {% set forActive = "" %}
+            {% endif %}
+            <li class="nav-item {{ forActive }}">
+                <a class="nav-link" href="{{ path("detail_section",{"id":itemMenu.getIdthesection }) }}">{{ itemMenu.getThenamesection }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
+
+{% block contenu %}
+    {% if pages is empty %}
+        <h3><small>Il n'y a pas encore d'article dans cette rubrique.</small><br> <br> <a href="{{ path("accueil") }}"><small>Retour a l'accueil</small></a></h3><hr>
+    {% endif %}
+    {% for item in pages %}
+        <h2>{{ item.getThetitle }}</h2>
+        <h3>
+            {% for categ in item.getThesectionthesection %}
+                <a href="{{ path("detail_section", {"id": categ.getIdthesection}) }}">{{ categ.getThenamesection }}</a> 
+            {% endfor %}
+        </h3>
+        <p>{{ item.getThelongtext|truncate(300, true) }}  <a href="{{path("detail_page",{"id": item.getIdthepage}) }}">Lire la suite</a></p>
+        <h4>Par {{ item.getAuthorauthor.getThecompletename }} le {{ item.getThetime|date("d/m/Y à H \\h i \\m") }}</h4><hr>
+    {% endfor %}
+
+
+{% endblock %}

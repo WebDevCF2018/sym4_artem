@@ -27,8 +27,8 @@ class PublicController extends AbstractController
         $page = $entityManager->getRepository(Thepage::class)->findBy([],["idthepage"=>"DESC"]);
 
         return $this->render('public/index.html.twig', [
-            'section' => $rub,
-             'page' => $page,
+            'sections' => $rub,
+             'pages' => $page,
         ]);
     }
     /**
@@ -50,9 +50,9 @@ class PublicController extends AbstractController
         $page = $entityManager->getRepository(Thepage::class)->find($id);
 
         // return the Twig's view with 2 arguments
-        return $this->render('public/one_article.html.twig', [
-            'section' => $rub,
-            'page' => $page,
+        return $this->render('public/one_page.html.twig', [
+            'sections' => $rub,
+            'pages' => $page,
         ]);
     }
     /**
@@ -82,7 +82,7 @@ class PublicController extends AbstractController
         return $this->render('public/one_section.html.twig', [
             'sections' => $rub,
             'section' => $section,
-            'page' => $page,
+            'pages' => $page,
         ]);
     }
 

@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -73,6 +75,85 @@ class Thepage
     public function __construct()
     {
         $this->thesectionthesection = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    public function getIdthepage(): ?int
+    {
+        return $this->idthepage;
+    }
+
+    public function getThetitle(): ?string
+    {
+        return $this->thetitle;
+    }
+
+    public function setThetitle(string $thetitle): self
+    {
+        $this->thetitle = $thetitle;
+
+        return $this;
+    }
+
+    public function getThelongtext(): ?string
+    {
+        return $this->thelongtext;
+    }
+
+    public function setThelongtext(string $thelongtext): self
+    {
+        $this->thelongtext = $thelongtext;
+
+        return $this;
+    }
+
+    public function getThetime(): ?\DateTimeInterface
+    {
+        return $this->thetime;
+    }
+
+    public function setThetime(?\DateTimeInterface $thetime): self
+    {
+        $this->thetime = $thetime;
+
+        return $this;
+    }
+
+    public function getAuthorauthor(): ?Author
+    {
+        return $this->authorauthor;
+    }
+
+    public function setAuthorauthor(?Author $authorauthor): self
+    {
+        $this->authorauthor = $authorauthor;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Thesection[]
+     */
+    public function getThesectionthesection(): Collection
+    {
+        return $this->thesectionthesection;
+    }
+
+    public function addThesectionthesection(Thesection $thesectionthesection): self
+    {
+        if (!$this->thesectionthesection->contains($thesectionthesection)) {
+            $this->thesectionthesection[] = $thesectionthesection;
+        }
+
+        return $this;
+    }
+
+    public function removeThesectionthesection(Thesection $thesectionthesection): self
+    {
+        if ($this->thesectionthesection->contains($thesectionthesection)) {
+            $this->thesectionthesection->removeElement($thesectionthesection);
+        }
+
+        return $this;
     }
 
 }

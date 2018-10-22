@@ -42,5 +42,46 @@ class Author
      */
     private $thecompletename;
 
+    public function getIdauthor(): ?int
+    {
+        return $this->idauthor;
+    }
+
+    public function getThenickname(): ?string
+    {
+        return $this->thenickname;
+    }
+
+    public function setThenickname(string $thenickname): self
+    {
+        $this->thenickname = $thenickname;
+
+        return $this;
+    }
+
+    public function getThepwd(): ?string
+    {
+        return $this->thepwd;
+    }
+
+    public function setThepwd(string $thepwd): self
+    {
+        $this->thepwd = $thepwd;
+
+        return $this;
+    }
+
+    public function getThecompletename(): ?string
+    {
+        return $this->thecompletename;
+    }
+
+    public function setThecompletename(string $thecompletename): self
+    {
+        $this->thecompletename = $thecompletename;
+
+        return $this;
+    }
+
 
 }

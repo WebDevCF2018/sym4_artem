@@ -7,7 +7,7 @@
 {% block menu %}
     <ul class="navbar-nav">
         <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#accueil">Accueil</a>
+            <a class="nav-link js-scroll-trigger" href="{{ path("accueil") }}">Accueil</a>
         </li>
         {% for itemMenu in sections %}
             <li class="nav-item">
@@ -18,19 +18,3 @@
 
 {% endblock %}
 
-{% block contenu %}
-    {% if articles is empty %}
-<h3><small>Il n'y a pas encore d'article sur notre site</small><br><hr>
-    {% endif %}
-    {% for item in articles %}
-        <h2>{{ item.getThetitle }}</h2>
-        <h3>
-            {% for categ in item.getSectionssections %}
-                <a href="{{ path("detail_section", {"id": categ.getIdsections}) }}">{{ categ.getThetitled }}</a> |
-            {% endfor %}
-        </h3>
-        <p>{{ item.getThetext|truncate(350, true) }}  <a href="{{path("detail_accueil",{"id": item.getIdarticles}) }}">Lire la suite</a></p>
-        <h4>Par {{ item.getUsersusers.getTherealname }} le {{ item.getThedate|date("d/m/Y à H \\h i \\m") }}</h4><hr>
-    {% endfor %}
-
-{% endblock %}

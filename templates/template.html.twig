@@ -16,6 +16,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
     {% endblock %}
+
     {% block menu %}
         <ul class="navbar-nav">
             <li class="nav-item">
@@ -39,9 +40,27 @@
         </ul>
     {% endblock %}
 
-{% endblock %}
+
         {% block entete_bas %}
     </div>
 
      </nav>
 {% endblock %}
+{% block content %}
+    <section class="resume-section p-3 p-lg-5 d-flex d-column" id="about">
+        <div class="my-auto">
+            <h1 class="mb-0">{% block titre %}Les gestion des données{% endblock %}
+            </h1>
+            <div class="subheading mb-5">{% block stitre %}One sub titre{% endblock %}
+
+            </div>
+            <p class="lead mb-5">{% block contenu %}Page text{% endblock %}</p>
+
+        </div>
+    </section>
+{% endblock %}
+
+{% endblock %}
+
+
+

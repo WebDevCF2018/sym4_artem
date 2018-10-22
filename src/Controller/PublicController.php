@@ -27,8 +27,8 @@ class PublicController extends AbstractController
         $page = $entityManager->getRepository(Thepage::class)->findBy([],["idthepage"=>"DESC"]);
 
         return $this->render('public/index.html.twig', [
-            'Thesection' => $rub,
-             'Thepage' => $page,
+            'section' => $rub,
+             'page' => $page,
         ]);
     }
     /**
@@ -51,8 +51,39 @@ class PublicController extends AbstractController
 
         // return the Twig's view with 2 arguments
         return $this->render('public/one_article.html.twig', [
-            'Thesection' => $rub,
-            'Thepage' => $page,
+            'section' => $rub,
+            'page' => $page,
         ]);
     }
+    /**
+     *
+     * Matches /section/{id},
+     * {id} is a requirement digit: "\d+" for more security
+     * to view an section's detail
+     *
+     * @Route("/section/{id}", name="detail_section", requirements={"id"="\d+"})
+     */
+    public function oneSection($id){
+        // get Doctrine Manager for all entities
+        $entityManager = $this->getDoctrine()->getManager();
+
+        // get all sections in db for menu
+        $rub = $entityManager->getRepository(Thesection::class)->findAll();
+
+        // get one section by its "id" from db
+        $section = $entityManager->getRepository(Thesection::class)->find($id);
+
+        // get all articles by one section, it's the easy way, you can use ORDER BY into sections.php entity, views annotation before private $articlesarticles;
+        $page = $section->getThepagethepage();
+
+
+
+        // return the Twig's view with 2 arguments
+        return $this->render('public/one_section.html.twig', [
+            'sections' => $rub,
+            'section' => $section,
+            'page' => $page,
+        ]);
+    }
+
 }

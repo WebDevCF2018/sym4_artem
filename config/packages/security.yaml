@@ -4,8 +4,8 @@ security:
         in_memory:
             memory:
                 users:
-                    admin:
-                        password: admin
+                    Artem:
+                        password: $2y$10$AWI91TwXzVsBLiCo1fKoMOoRw8cN7PWeZcua1wu3TwXAmkQszhlzi
                         roles: 'ROLE_ADMIN'
 
     firewalls:
@@ -14,7 +14,14 @@ security:
             security: false
         main:
             anonymous: ~
-            http_basic: ~
+            form_login:
+                login_path: login
+                check_path: login
+                # the route if you are connected
+                default_target_path: pages_index
+            logout:
+                path:   the_logout
+                target: accueil
 
             # activate different ways to authenticate
 
@@ -30,4 +37,5 @@ security:
          - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
     encoders:
-            Symfony\Component\Security\Core\User\User: plaintext
+            Symfony\Component\Security\Core\User\User:
+                algorithm: bcrypt

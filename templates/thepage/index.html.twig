@@ -1,10 +1,22 @@
-{% extends 'base.html.twig' %}
+{% extends 'template.html.twig' %}
 
-{% block title %}Thepage index{% endblock %}
-
+{% block title %}{{ parent() }} - Liste des articles{% endblock %}
+{% block menu %}
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+            <a class="nav-link" href="{{ path("pages_index") }}">Accueil de l'administration</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="{{ path('pages_new') }}">Créer un nouvel article</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ path('the_logout')}}">Déconnexion</a>
+        </li>
+    </ul>
+{% endblock %}
 {% block body %}
-    <h1>Thepage index</h1>
-
+<h1 class="mb-0">Admin index</h1>
+     <button ><a class="nav-link" href="{{ path('the_logout')}}">Déconnexion</a></button>
     <table class="table">
         <thead>
             <tr>
@@ -29,7 +41,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="5">Pas encore d'article</td>
             </tr>
         {% endfor %}
         </tbody>

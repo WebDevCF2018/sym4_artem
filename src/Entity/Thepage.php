@@ -67,6 +67,8 @@ class Thepage
      *   }
      * )
      */
+
+
     private $thesectionthesection;
 
     /**
@@ -75,6 +77,7 @@ class Thepage
     public function __construct()
     {
         $this->thesectionthesection = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->setThetime(new \DateTime());
     }
 
     public function getIdthepage(): ?int

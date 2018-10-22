@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Thepage index{% endblock %}
+
+{% block body %}
+    <h1>Thepage index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Idthepage</th>
+                <th>Thetitle</th>
+                <th>Thelongtext</th>
+                <th>Thetime</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for thepage in thepages %}
+            <tr>
+                <td>{{ thepage.idthepage }}</td>
+                <td>{{ thepage.thetitle }}</td>
+                <td>{{ thepage.thelongtext }}</td>
+                <td>{{ thepage.thetime ? thepage.thetime|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('thepage_show', {'idthepage': thepage.idthepage}) }}">show</a>
+                    <a href="{{ path('thepage_edit', {'idthepage': thepage.idthepage}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('thepage_new') }}">Create new</a>
+{% endblock %}

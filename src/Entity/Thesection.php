@@ -41,6 +41,15 @@ class Thesection
      * @var \Doctrine\Common\Collections\Collection
      *
      * @ORM\ManyToMany(targetEntity="Thepage", mappedBy="thesectionthesection")
+     * @ORM\OrderBy({"idthepage" = "DESC"})
+     * * @ORM\JoinTable(name="sections_has_articles",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="sections_idsections", referencedColumnName="idsections")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="articles_idarticles", referencedColumnName="idarticles")
+     *   }
+     * )
      */
     private $thepagethepage;
 
@@ -108,5 +117,9 @@ class Thesection
 
         return $this;
     }
+    public function __toString()
+{
+    return (string) $this->getThenamesection();
+}
 
 }

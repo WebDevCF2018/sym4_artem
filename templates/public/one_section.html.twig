@@ -37,7 +37,7 @@
                 <a href="{{ path("detail_section", {"id": categ.getIdthesection}) }}">{{ categ.getThenamesection }}</a>
             {% endfor %}
         </h3>
-        <p>{{ item.getThelongtext|truncate(300, true) }}  <a href="{{path("detail_page",{"id": item.getIdthepage}) }}">Lire la suite</a></p>
+        <p>{{ item.getThelongtext|truncate(500, true) }}  <a href="{{path("detail_page",{"id": item.getIdthepage}) }}">Lire la suite</a></p>
         <h4>Par {{ item.getAuthorauthor.getThecompletename }} le {{ item.getThetime|date("d/m/Y à H \\h i \\m") }}</h4><hr>
     {% endfor %}
 

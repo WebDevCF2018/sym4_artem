@@ -1,26 +1,24 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 23 oct. 2018 à 08:03
--- Version du serveur :  5.7.19
--- Version de PHP :  7.1.9
+-- Généré le :  Dim 21 oct. 2018 à 20:12
+-- Version du serveur :  5.7.23
+-- Version de PHP :  7.2.10
 
+SET FOREIGN_KEY_CHECKS=0;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
 --
 -- Base de données :  `sym4_artem`
 --
+
+CREATE DATABASE IF NOT EXISTS `sym4_artem` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `sym4_artem`;
 
 -- --------------------------------------------------------
 
@@ -61,17 +59,16 @@ CREATE TABLE IF NOT EXISTS `thepage` (
   `author_idauthor` int(10) UNSIGNED NOT NULL,
   PRIMARY KEY (`idthepage`),
   KEY `fk_thepage_author_idx` (`author_idauthor`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `thepage`
 --
 
 INSERT INTO `thepage` (`idthepage`, `thetitle`, `thelongtext`, `thetime`, `author_idauthor`) VALUES
-(1, 'UML', 'Le Langage de Modélisation Unifié, de l\'anglais Unified Modeling Language (UML), est un langage de modélisation graphique à base de pictogrammes conçu pour fournir une méthode normalisée pour visualiser la conception d\'un système. Il est couramment utilisé en développement logiciel et en conception orientée objet.\r\n\r\nL\'UML est le résultat de la fusion de précédents langages de modélisation objet : Booch, OMT, OOSE. Principalement issu des travaux de Grady Booch, James Rumbaugh et Ivar Jacobson, UML est à présent un standard adopté par l\'Object Management Group (OMG).\r\n\r\nUML est utilisé pour spécifier, visualiser, modifier et construire les documents nécessaires au bon développement d\'un logiciel orienté objet. UML offre un standard de modélisation, pour représenter l\'architecture logicielle. Les différents éléments représentables sont :\r\n\r\nActivité d\'un objet/logiciel\r\n\r\nActeurs\r\n\r\nProcessus\r\n\r\nSchéma de base de données\r\n\r\nComposants logiciels\r\n\r\nRéutilisation de composants\r\n\r\nGrâce aux outils de modélisation UML, il est également possible de générer automatiquement tout ou partie du code d\'une application logicielle, par exemple en langage Java, à partir des divers documents réalisés.', '2018-10-22 22:08:00', 2),
+(1, 'UML', 'Le Langage de Modélisation Unifié, de l\'anglais Unified Modeling Language (UML), est un langage de modélisation graphique à base de pictogrammes conçu pour fournir une méthode normalisée pour visualiser la conception d\'un système. Il est couramment utilisé en développement logiciel et en conception orientée objet.\r\n\r\nL\'UML est le résultat de la fusion de précédents langages de modélisation objet : Booch, OMT, OOSE. Principalement issu des travaux de Grady Booch, James Rumbaugh et Ivar Jacobson, UML est à présent un standard adopté par l\'Object Management Group (OMG).\r\n\r\nUML est utilisé pour spécifier, visualiser, modifier et construire les documents nécessaires au bon développement d\'un logiciel orienté objet. UML offre un standard de modélisation, pour représenter l\'architecture logicielle. Les différents éléments représentables sont :\r\n\r\nActivité d\'un objet/logiciel\r\n\r\nActeurs\r\n\r\nProcessus\r\n\r\nSchéma de base de données\r\n\r\nComposants logiciels\r\n\r\nRéutilisation de composants\r\n\r\nGrâce aux outils de modélisation UML, il est également possible de générer automatiquement tout ou partie du code d\'une application logicielle, par exemple en langage Java, à partir des divers documents réalisés.', '2018-10-21 22:08:08', 2),
 (2, 'MongoDB', 'MongoDB (de l\'anglais humongous qui peut être traduit par « énorme ») est un système de gestion de base de données orientée documents, répartissable sur un nombre quelconque d\'ordinateurs et ne nécessitant pas de schéma prédéfini des données. Il est écrit en C++. \r\n\r\nLe serveur et les outils sont distribués sous licence AGPL, les pilotes sous licence Apache et la documentation sous licence Creative Commons. Il fait partie de la mouvance NoSQL.\r\n\r\nMongoDB permet de manipuler des objets structurés au format BSON (JSON binaire), sans schéma prédéterminé. En d\'autres termes, des clés peuvent être ajoutées à tout moment « à la volée », sans reconfiguration de la base.\r\n\r\nLes données prennent la forme de documents enregistrés eux-mêmes dans des collections, une collection contenant un nombre quelconque de documents. Les collections sont comparables aux tables, et les documents aux enregistrements des bases de données relationnelles. \r\n\r\nContrairement aux bases de données relationnelles, les champs d\'un enregistrement sont libres et peuvent être différents d\'un enregistrement à un autre au sein d\'une même collection. \r\n\r\nLe seul champ commun et obligatoire est le champ de clé principale (\"id\"). Par ailleurs, MongoDB ne permet ni les requêtes très complexes standardisées, ni les JOIN, mais permet de programmer des requêtes spécifiques en JavaScript.', '2018-10-21 22:09:30', 2),
-(3, 'MariaDB', 'En 2009, à la suite du rachat de MySQL par Sun Microsystems et des annonces du rachat de Sun Microsystems par Oracle Corporation, Michael Widenius, fondateur de MySQL, quitte cette société pour lancer le projet MariaDB, dans une démarche visant à remplacer MySQL tout en assurant l’interopérabilité. Le nom vient de la 2e fille de Michael Widenius, Maria (la première s\'appelant My).\r\n\r\nL’encyclopédie libre Wikipédia annonce, fin 2012, la migration de MySQL à MariaDB. Les distributions GNU/Linux, comme Fedora, openSuse et Debian abandonnent elles aussi MySQL.\r\n\r\nEn septembre 2013 Google annonce l\'adoption de MariaDB en lieu et place de MySQL. Dans la foulée un des ingénieurs de Google est affecté à la Fondation MariaDB.\r\n\r\nUn consortium baptisé « Open Database Alliance » a par ailleurs été créé pour assurer le développement du logiciel (comparable à la fondation Linux avec le noyau Linux).', '2018-10-21 22:11:00', 1),
-(5, 'Cassandra', 'Apache Cassandra est un système de gestion de base de données (SGBD) de type NoSQL conçu pour gérer des quantités massives de données sur un grand nombre de serveurs, assurant une haute disponibilité en éliminant les points individuels de défaillance. Il permet une répartition robuste sur plusieurs centres de données, avec une réplication asynchrone sans master et une faible latence pour les opérations de tous les clients.\r\n\r\nCassandra met l\'accent sur la performance. En 2012, des chercheurs de l\'université de Toronto étudiant les systèmes NoSQL ont conclu : « en termes d\'adaptabilité, il y a un gagnant indiscutable. Cassandra atteint le plus fort débit sur le maximum de nœuds dans tous les tests » même si « cela se fait au détriment d\'une latence élevée sur les lectures et les écritures ».\r\n\r\nLe projet est open source et porté par la fondation Apache.', '2018-10-22 16:00:00', 1);
+(3, 'MariaDB', 'En 2009, à la suite du rachat de MySQL par Sun Microsystems et des annonces du rachat de Sun Microsystems par Oracle Corporation, Michael Widenius, fondateur de MySQL, quitte cette société pour lancer le projet MariaDB, dans une démarche visant à remplacer MySQL tout en assurant l’interopérabilité. Le nom vient de la 2e fille de Michael Widenius, Maria (la première s\'appelant My).\r\n\r\nL’encyclopédie libre Wikipédia annonce, fin 2012, la migration de MySQL à MariaDB. Les distributions GNU/Linux, comme Fedora, openSuse et Debian abandonnent elles aussi MySQL.\r\n\r\nEn septembre 2013 Google annonce l\'adoption de MariaDB en lieu et place de MySQL. Dans la foulée un des ingénieurs de Google est affecté à la Fondation MariaDB.\r\n\r\nUn consortium baptisé « Open Database Alliance » a par ailleurs été créé pour assurer le développement du logiciel (comparable à la fondation Linux avec le noyau Linux).', '2018-10-21 22:11:13', 1);
 
 -- --------------------------------------------------------
 
@@ -94,7 +91,6 @@ CREATE TABLE IF NOT EXISTS `thepage_has_thesection` (
 
 INSERT INTO `thepage_has_thesection` (`thepage_idthepage`, `thesection_idthesection`) VALUES
 (2, 1),
-(5, 1),
 (3, 2),
 (1, 3);
 
@@ -137,8 +133,5 @@ ALTER TABLE `thepage`
 ALTER TABLE `thepage_has_thesection`
   ADD CONSTRAINT `fk_thepage_has_thesection_thepage1` FOREIGN KEY (`thepage_idthepage`) REFERENCES `thepage` (`idthepage`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_thepage_has_thesection_thesection1` FOREIGN KEY (`thesection_idthesection`) REFERENCES `thesection` (`idthesection`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+SET FOREIGN_KEY_CHECKS=1;
 COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

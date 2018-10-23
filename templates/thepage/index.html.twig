@@ -17,16 +17,17 @@
 {% block body %}
 <h1 class="mb-0">Admin index</h1>
     <br>
-     <button type="button" class="btn btn-dark"><a class="nav-link" href="{{ path('the_logout')}}">Déconnexion</a></button>
+    <button type="button" class="btn btn-dark"><a class="nav-link" href="{{ path('thepage_new') }}">Ajouter un nouvel article</a></button>
+    <button type="button" class="btn btn-dark"><a class="nav-link" href="{{ path('the_logout')}}">Déconnexion</a></button>
     <br><br>
     <table class="table">
         <thead>
             <tr>
-                <th>Idthepage</th>
-                <th>Thetitle</th>
-                <th>Thelongtext</th>
-                <th>Thetime</th>
-                <th>actions</th>
+                <th>L'Id</th>
+                <th>Le titre</th>
+                <th>Le texte</th>
+                <th>La date</th>
+                <th>Les actions</th>
             </tr>
         </thead>
         <tbody>
@@ -37,8 +38,8 @@
                 <td>{{ thepage.thelongtext }}</td>
                 <td>{{ thepage.thetime ? thepage.thetime|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
-                    <a href="{{ path('thepage_show', {'idthepage': thepage.idthepage}) }}">show</a>
-                    <a href="{{ path('thepage_edit', {'idthepage': thepage.idthepage}) }}">edit</a>
+                    <a href="{{ path('thepage_show', {'idthepage': thepage.idthepage}) }}">Montrer</a>
+                    <a href="{{ path('thepage_edit', {'idthepage': thepage.idthepage}) }}">Editer</a>
                 </td>
             </tr>
         {% else %}
@@ -49,5 +50,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('thepage_new') }}">Create new</a>
+
 {% endblock %}
